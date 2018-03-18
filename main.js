@@ -43,10 +43,39 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 //     return true;
 //   }
 // });
+// const retailCompanies = companies.filter(company => company.category === 'Retail');
 
-const retailCompanies = companies.filter(company => company.category === 'Retail');
+// Get 80's companies
 
-console.log(retailCompanies);
+// let eightiesCompanies = [];
+// for(var i = 0; i < companies.length; i++){
+//   if(companies[i].start >= 1980 && companies[i].start < 1990) {
+//     eightiesCompanies.push(companies[i]);
+//   }
+// }
+
+// const eightiesCompanies = companies.filter(function(company) {
+//   if(company.start >= 1980 && company.start < 1990) {
+//     return true;
+//   }
+// });
+
+// const eightiesCompanies = companies.filter(company => (company.start >= 1980 && company.start < 1990));
+//
+// console.log(eightiesCompanies);
+
+
+// Lasted more than 10 years
+
+// const lastedTenYears = companies.filter(function(company) {
+//   if((company.end - company.start) >= 10) {
+//     return true;
+//   }
+// });
+
+const lastedTenYears = companies.filter(company => company.end - company.start >= 10);
+
+console.log(lastedTenYears);
 
 // map
 // sort
