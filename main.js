@@ -73,10 +73,43 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 //   }
 // });
 
-const lastedTenYears = companies.filter(company => company.end - company.start >= 10);
-
-console.log(lastedTenYears);
+// const lastedTenYears = companies.filter(company => company.end - company.start >= 10);
+//
+// console.log(lastedTenYears);
 
 // map
+
+// Create array of company names
+// const companyNames = companies.map(function(company) {
+//   return company.name;
+// });
+
+// const testMap = companies.map(function(company) {
+//   return `${company.name} [${company.start} - ${company.end}]`;
+// });
+
+// const testMap = companies.map(company => `${company.name} [${company.start} - ${company.end}]`);
+//
+// console.log(testMap);
+
+
+// Square ages
+
+// const ageSquare = ages.map( age => Math.sqrt(age));
+// console.log(ageSquare);
+
+// Age times 2
+
+// const ageTimesTwo = ages.map( age => age * 2);
+// console.log(ageTimesTwo);
+
+// Age times 2 and then add 1
+
+const ageTimesTwoAddOne = ages
+  .map(age => age * 2)
+  .map(age => age + 1);
+
+console.log(ageTimesTwoAddOne);
+
 // sort
 // reduce
