@@ -105,11 +105,32 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
 // Age times 2 and then add 1
 
-const ageTimesTwoAddOne = ages
-  .map(age => age * 2)
-  .map(age => age + 1);
-
-console.log(ageTimesTwoAddOne);
+// const ageTimesTwoAddOne = ages
+//   .map(age => age * 2)
+//   .map(age => age + 1);
+//
+// console.log(ageTimesTwoAddOne);
 
 // sort
+
+// Sort companies by start year
+
+// const sortedCompanies = companies.sort(function(a, b) {
+//   if(a.start > b.start) {
+//     return 1;
+//   } else {
+//     return -1;
+//   }
+// });
+
+// const sortedCompanies = companies.sort((a,b) => (a.start > b.start ? 1 : -1));
+//
+// console.log(sortedCompanies);
+
+// Sort ages
+
+const sortAges = ages.sort((a, b) => a - b);
+
+console.log(sortAges);
+
 // reduce
