@@ -162,10 +162,78 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
 // Combine Methods
 
-const combined = ages
-  .map(age => age * 2)
-  .filter(age => age >= 40)
-  .sort((a, b) => a - b)
-  .reduce((total, age) => total + age, 0);
+// const combined = ages
+//   .map(age => age * 2)
+//   .filter(age => age >= 40)
+//   .sort((a, b) => a - b)
+//   .reduce((total, age) => total + age, 0);
+//
+// console.log(combined);
 
-console.log(combined);
+// CHALLENGE 1: REVERSE A STRING
+
+// function reverseString(str) {
+  // return str
+  //   .split('')
+  //   .reverse()
+  //   .join('');
+
+  ///////////////
+
+  // let revString = '';
+  // for(let i = str.length - 1; i >= 0; i--) {
+  //   revString = revString + str[i];
+  // }
+  // return revString;
+
+  ////////////////
+
+  // let revString = '';
+  // for(let i = 0; i <= str.length - 1; i++) {
+  //   revString = str[i] + revString;
+  // }
+  // return revString;
+
+  /////////////////
+
+  // let revString = '';
+  // for(let char of str) {
+  //   revString = char + revString;
+  // }
+  // return revString;
+
+  /////////////////
+
+  // let revString = '';
+  // str.split('').forEach(char => revString = char + revString);
+  // return revString;
+
+  /////////////////
+
+//   return str.split('').reduce((revString, char) => char + revString, '');
+//
+//
+// }
+//
+// console.log(reverseString('hello'));
+
+
+// CHALLENGE 2: VALIDATE A PALINDROME
+
+// function isPalindrome(str) {
+//   const revString = str.split('').reverse().join('');
+//   return revString === str;
+// }
+//
+// console.log(isPalindrome('racecar'));
+
+
+// CHALLENGE 3: REVERSE AN INTEGER
+
+function reverseInt(int) {
+  const revString = int.toString().split('').reverse().join('');
+  return parseInt(revString) * Math.sign(int);
+
+}
+
+console.log(reverseInt(-1234));

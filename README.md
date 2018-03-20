@@ -199,6 +199,23 @@ JavaScript Higher Order Functions & Arrays
 > *Note*: If ```initialValue``` isn't provided, ```reduce()``` will execute the callback function starting at index 1, skipping the first index. If ```initialValue``` is provided, it will start at index ```0```.
 >
 
+
+String methods
+-------------
+>
+>**split()**
+>The ```split()``` method splits a ```String``` object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split.
+>
+>*Note*: If an empty string ```("")``` is used as the separator, the string is split between each character.
+>
+>**Return value**
+>An ```Array``` of strings split at each point where the separator occurs in the given string.
+>
+
+>
+>
+>
+
 Helpful Links
 -------------
 >
@@ -208,3 +225,5 @@ Helpful Links
 > - [MDN docs on map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 > - [MDN docs on filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 > - [MDN docs on reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+> - [JavaScript Cardio Session 1](https://www.youtube.com/watch?v=M2bJBuaOeOQ)
+> *YouTube tutorial*
