@@ -227,3 +227,4 @@ Helpful Links
 > - [MDN docs on reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 > - [JavaScript Cardio Session 1](https://www.youtube.com/watch?v=M2bJBuaOeOQ)
 > *YouTube tutorial*
+> - [JavaScript - Learn to Chain Map, Filter, and Reduce](https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4)

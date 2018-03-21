@@ -230,10 +230,202 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
 // CHALLENGE 3: REVERSE AN INTEGER
 
-function reverseInt(int) {
-  const revString = int.toString().split('').reverse().join('');
-  return parseInt(revString) * Math.sign(int);
+// function reverseInt(int) {
+//   const revString = int.toString().split('').reverse().join('');
+//   return parseInt(revString) * Math.sign(int);
+//
+// }
+//
+// console.log(reverseInt(-1234));
 
+
+// CHALLENGE 4: CAPITALIZE LETTER
+
+// function capializeLetters(str) {
+//   const strArr = str.toLowerCase().split(' ');
+//
+//   for(let i = 0; i < strArr.length; i++) {
+//     strArr[i] = strArr[i].substring(0,1).toUpperCase() +
+//     strArr[i].substring(1);
+//   }
+//
+//   return strArr.join(' ');
+
+  // return str
+  //   .toLowerCase()
+  //   .split(' ')
+  //   .map(function(word) {
+  //     return word[0].toUpperCase() + word.substring(1);
+  //   }).join(' ');
+
+  // return str
+  //   .toLowerCase()
+  //   .split(' ')
+  //   .map( word => word[0].toUpperCase() + word.substring(1)).join(' ');
+
+//   return str.replace(/\b[a-z]/gi, function(char) {
+//     return char.toUpperCase();
+//   });
+//
+// }
+//
+// console.log(capializeLetters('i love javascript'));
+
+
+// CHALLENGE 5: MAX CHARACTER
+
+// function maxCharacter(str) {
+//   const charMap = {};
+//   let maxNum = 0;
+//   let maxChar = '';
+//
+//   str.split('').forEach(function(char) {
+//     if(charMap[char]) {
+//       charMap[char]++;
+//     } else {
+//       charMap[char] = 1;
+//     }
+//   });
+//   for(let char in charMap) {
+//     if(charMap[char] > maxNum) {
+//       maxNum = charMap[char];
+//       maxChar = char;
+//     }
+//   }
+//
+//   return maxChar;
+// }
+//
+// console.log(maxCharacter('aabbbcccc'));
+
+
+// function fizzBuzz() {
+//   for(let i = 1; i <= 100; i++) {
+//     if(i % 3 === 0 && i % 5 === 0) {
+//       console.log('FizzBuzz');
+//     } else if(i % 3 === 0) {
+//       console.log('Fizz');
+//     } else if(i % 5 === 0) {
+//       console.log('Buzz');
+//     } else {
+//       console.log(i);
+//     }
+//   }
+// }
+//
+// console.log(fizzBuzz());
+
+
+// CHALLENGE 6
+
+// function longestWord(sen) {
+//   // Create filtered array
+//   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+//
+//   // Sort by length
+//   const sorted = wordArr.sort((a, b) => b.length - a.length);
+//
+//   // If multiple words, put into array
+//   const longestWordArr = sorted.filter(word => word.length === sorted[0].length);
+//
+//   // Check if more than one array val
+//   if(longestWordArr.length === 1) {
+//     return longestWordArr[0];
+//   } else {
+//     return longestWordArr;
+//   }
+// }
+//
+//
+// console.log(longestWord('Hello there, my name is PJC1'));
+
+
+// CHALLENGE 7
+
+// function chunkArray(arr, len) {
+//   // // Init chunked arr
+//   // const chunkedArr = [];
+//   // // Set index
+//   // let i = 0;
+//   //
+//   // // Loop while index is less than the array length
+//   // while(i < arr.length) {
+//   //   // Slice out from the index to the index + the chunk length and push onto the chuncked array
+//   //   chunkedArr.push(arr.slice(i, i + len));
+//   //   // Increment by chunk length
+//   //   i += len;
+//   // }
+//   //
+//   // return chunkedArr;
+//
+//   // Init chuncked arr
+//   const chunkedArr = [];
+//   arr.forEach( (val) => {
+//     const last = chunkedArr[chunkedArr.length - 1];
+//
+//     if(!last || last.length === len) {
+//       chunkedArr.push([val]);
+//     } else {
+//       last.push(val);
+//     }
+//   });
+//   return chunkedArr;
+// }
+//
+// console.log(chunkArray([1,2,3,4,5,6,7], 2));
+
+
+
+// CHALLENGE 8
+
+// function flattenArray(arrays) {
+//   // return arrays.reduce(function(a,b) {
+//   //   return a.concat(b);
+//   // });
+//
+//   // return [].concat.apply([], arrays);
+//
+//   return
+// }
+//
+// console.log(flattenArray([[1, 2], [3,4], [5,6], [6,7]]));
+
+
+// CHALLENGE 9
+
+// function isAnagram(str1, str2) {
+//  return formatStr(str1) === formatStr(str2);
+// }
+//
+// function formatStr(str) {
+//   return str
+//     .replace(/[^\w]/g, '')
+//     .toLowerCase()
+//     .split('')
+//     .sort()
+//     .join('')
+// }
+//
+// console.log(isAnagram('elbow', 'below'));
+
+// CHALLENGE 10
+
+function letterChanges(str) {
+  let newStr = str
+    .toLowerCase()
+    .replace(/[a-z]/gi, function(char) {
+      if(char === 'z' || char === 'Z') {
+        return 'a';
+      } else {
+        return String.fromCharCode(char.charCodeAt() + 1);
+      }
+    });
+
+    newStr = newStr.replace(/[a|e|i|o|u]/gi, function(vowel) {
+      return vowel.toUpperCase();
+    });
+
+  return newStr;
 }
 
-console.log(reverseInt(-1234));
+console.log(letterChanges('Hello There'));
