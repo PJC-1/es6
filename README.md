@@ -4,6 +4,68 @@ es6!
 
 JavaScript Higher Order Functions & Arrays
 -------------
+>  **High-order Functions**
+>  **Functions** that operate on other functions, either by taking them as **arguments** or by **returning** them, are called **higher-order functions**.
+>  
+>  Higher-order functions allow us to *abstract over **actions**, not just **values**.
+>  1. functions that **create** new functions.
+>  ```
+>  function greaterThan(n) {
+>      return functions(m) { return m > n; };
+>  }
+>  
+>  var greaterThan10 = greaterThan(10);
+>  
+>  console.log(greaterThan10(11));
+>  
+>  // => true
+>  ```
+>  
+>  In the example we see that when we set ```var greaterThan10 = greaterThan(10);``` that ```greaterThan10``` is actually a function because ```greaterThan(n)``` *returns* a function. This is *why* we are able to *pass* the *argument* ```11``` to it (```greaterThan10(11)```).
+>  That is an example of ```creating``` a function by returning a ```function```.
+>  
+>  2. functions that **change** other functions.
+>  ```
+> function noisy(f) {
+>     return functions(arg) {
+>         console.log("calling with", arg);
+>         var val = f(arg);
+>         console.log("called with", arg, "- got", val);
+>         return val;
+>     };
+> }
+>
+> noisy(Boolean)(0);
+> // => calling with 0
+> // => called with 0 - got false
+>  ```
+>
+>In this example the ```noisy(f)``` function will take ```function``` as an *argument*, and later that ```function``` is *executed* with the returned function's argument (```f(arg)```).
+>  
+>  3. functions that provide new types of control flow.
+> ```
+> function unless(test, then) {
+>     if (!test) {
+>         then();
+>     }
+> }
+>
+> function repeat(times, body) {
+>    for (var i = 0; i < times; i++) body(i);
+> }
+>
+> repeat(3, function(n) {
+>     unless(n % 2, function() {
+>         console.log(n, "is even");
+>     });
+> });
+> // => 0 is even
+> // => 2 is even
+> ```
+>
+> I this example we can see that we created 2 control flow (```repeat()``` which was a loop and ```unless()``` which was a **conditional** execution).
+>
+>  
 >  
 >**forEach**
 >The ```forEach()``` method executes a provided function once for each array element.
@@ -212,8 +274,27 @@ String methods
 >An ```Array``` of strings split at each point where the separator occurs in the given string.
 >
 
+Abstraction
+-------------
+> Abstractions **hide details** and give us the ability to talk about problems at a higher (*or more abstract*) level.
 >
+> In the following *example* we see **2** *snippets** of code that produce the same result:
+> ```
+> //1
+> var total = 0, count = 1;
+> while (count <= 10) {
+>    total += count;
+>    count += 1;
+> }
+> console.log(total);
+> ```
+> In this snippet we set **2** ```variables``` and make use of a ```for-loop``` to ```increment``` the ```total``` *variable*.
 >
+> In the next **example** we will make use of the ```sum``` method and ```range``` method to achieve the same outcome:
+>
+> ```
+> console.log(sum(range(1, 10)));
+> ```
 >
 
 Helpful Links
@@ -228,3 +309,4 @@ Helpful Links
 > - [JavaScript Cardio Session 1](https://www.youtube.com/watch?v=M2bJBuaOeOQ)
 > *YouTube tutorial*
 > - [JavaScript - Learn to Chain Map, Filter, and Reduce](https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4)
+> - [Eloquent JavaScript Tutorial 5 High-order Functions](https://www.youtube.com/watch?v=nOfrQE4CJso)
