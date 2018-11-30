@@ -65,7 +65,26 @@ JavaScript Higher Order Functions & Arrays
 >
 > I this example we can see that we created 2 control flow (```repeat()``` which was a loop and ```unless()``` which was a **conditional** execution).
 >
->  
+>**apply()**
+>The ```apply()``` calls a function with an array as arguments.
+>
+>In the ```noisy(f)``` function *example*, it had a *gotcha* which was the returned function had an parameter of ```arg```, so it would only take a single and would be a problem if we needed to pass multiple arguments to the *inner-function*.
+>
+>With ```apply()``` you can pass an ```array``` to the function that contains all the **arguments** for that function.
+>```
+>function noisy(f) {
+>    return function(arg) {
+>        console.log("calling with", arg);
+>        var val = f(arg);
+>        console.log("called with", arg, "- got", val);
+>        return val;
+>    };
+>}
+>
+>// var val = f.apply(null, arguments);
+>```
+>
+>
 >  
 >**forEach**
 >The ```forEach()``` method executes a provided function once for each array element.
@@ -295,6 +314,47 @@ Abstraction
 > ```
 > console.log(sum(range(1, 10)));
 > ```
+>
+
+JSON
+-------------
+> 1. **JSON** stands for, **JavaScript Object Notation** and is used as a **data storage** and **communication** format on the Web.
+> 2. **JSON** has the following *Limitations*:
+> - All **property names** have to be surrounded by **double quotes**.
+> - Only **simple data expressions** are allowed, no function calls, variables, or anything that involves actual computation.
+> - **No Comments** are allowed in **JSON**.
+>
+> *example JSON*:
+>```
+>[
+>    {
+>        "name": "Emma de Milliano",
+>        "sex": "f",
+>        "father": "Petrus de Milliano",
+>        "mother": "Sophia van Damme"
+>    },
+>    {
+>        "name": "Carlous Haverkeke",
+>        "sex": "m",
+>        "father": "Carel Haverbeke",
+>        "mother": "Maria van Brussel"
+>    }
+>]
+>```
+>
+> *JavaScript* provides to **functions** to work with **JSON**:
+> 1. ```JSON.stringify()```: takes a *JavaScript* value and returns a **JSON-encoded string**.
+> 2. ```JSON.parse()```: takes a **JSON-encoded string** and converts it to the value it encodes.
+>
+> *example*:
+> ```
+> var string = JSON.stringify({ name: "X", born: 1980 });
+> console.log(string);
+> // => {"name": "X", "born": 1980}
+> console.log(JSON.parse(string).born);
+> // => 1980
+> ```
+>
 >
 
 Helpful Links
