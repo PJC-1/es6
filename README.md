@@ -87,7 +87,7 @@ JavaScript Higher Order Functions & Arrays
 >
 >  
 >**forEach**
->The ```forEach()``` method executes a provided function once for each array element.
+>The ```forEach()``` method executes a provided function (*argument*) once for each array element.
 >
 >Example:
 >
@@ -130,7 +130,7 @@ JavaScript Higher Order Functions & Arrays
 >
 >**filter()**
 >
->The ```filter()``` method creates a new array with all elements that pass the test implemented by the provided function.
+>The ```filter()``` method creates (*returns*) a **new array** with all elements that pass the test implemented by the provided function.
 >
 >Example:
 >
@@ -157,7 +157,7 @@ JavaScript Higher Order Functions & Arrays
 >
 >**map()**
 >
->The ```map()``` method creates a new array with the results of calling a provided function on every element in the calling array.
+>The ```map()``` method creates (*returns*) a **new array** with the results of calling a provided function on every element in the calling array. In other words ```map()``` is used to **modify** each *element* in the ```array```.
 >
 >Example:
 >```
