@@ -261,6 +261,8 @@ JavaScript Higher Order Functions & Arrays
 >// expected output: 15
 >```
 >
+>
+>
 >**Return value**
 >The value that results from the reduction.
 >
@@ -280,6 +282,29 @@ JavaScript Higher Order Functions & Arrays
 > *Note*: If ```initialValue``` isn't provided, ```reduce()``` will execute the callback function starting at index 1, skipping the first index. If ```initialValue``` is provided, it will start at index ```0```.
 >
 
+>**bind()**
+>The ```bind()``` method, which **all functions have**, *creates* a new function that will **call the original function** but with some of the arguments already **fixed**.
+>
+>*example*:
+>```
+>var module = {
+>    x: 42,
+>    getX: function() {
+>        return this.x;
+>    }
+>}
+>
+>var unboundGetX = module.getX;
+>console.log(unboundGetX()); // The function gets invoked at the global scope
+>// expected output: undefined
+>
+>var boundGetX = unboundGetX.bind(module);
+>console.log(boundGetX());
+>// expected output: 42
+>```
+>
+>[Function.prototype.bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+>
 
 String methods
 -------------
