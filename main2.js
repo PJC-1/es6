@@ -14,11 +14,7 @@
 
 // Solution 2 - ...rest & reduce/forEach
 function addAll(...numbers) {
-  let total = 0;
-  numbers.forEach((num) => {
-    total += num;
-  });
-  return total;
+  return numbers.reduce((total, num) => total + num);
 }
 
 console.log(addAll(2,5,6,7));

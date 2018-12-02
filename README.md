@@ -1,6 +1,64 @@
-es6!
+JavaScript: Higher-Order Functions, Functional Programming, ES6, and more...
 ===================
 > Learning about es6 and other javascript topics. The following notes are a mix of helpful youtube tutorials, documentation, articles, and posts. Which will be listed in the *Links* section!
+
+Functional Programming
+-------------
+>**JavaScript** works well with **functional programming** because it *accepts* **Higher-Order Functions**.
+>
+>**What is Functional Programming?**
+>*Simply* **Functional Programming** is an approach where you can *pass* **functions** as **parameters** to other **functions** and also *return* them as *values*.
+>
+>With a **Functional Programming** approach we think of code in terms of **functions**.
+>
+>**First-Class Functions**
+>In **JavaScript** *functions* are treated as **first-class citizens**.
+>This is because in **JavaScript** (*or any other functional programming languages*) functions are *objects*.
+>
+>In **JavaScript** functions are a *special type* of object, they are ```Function``` objects.
+>
+>*example*:
+>```
+>function greeting() {
+>    console.log('Hello World');
+>}
+>
+>greeting();
+>// prints 'Hello World'
+>
+>// add a property
+>greeting.lang = 'English';
+>
+>console.log(greeting.lang);
+>// prints 'English'
+>```
+>
+>In the *example* above we see that we can add the property ```lang``` to the function ```greeting()```, just like we do with a normal *JavaScript* ```object```.
+>*NOTE*: This is considered **bad practice**, properties should be added to a normal object.
+>
+>In **JavaScript**, everything you can do with other types like ```object```, ```string```, or ```number```, you can do with ```functions```.
+>
+>You can *pass* them as **parameters** to other functions (```callbacks```), *assign* them to ```variables``` and *pass* them around. This is why *functions* in **JavaScript** are known as **First-Class Functions**.
+>
+>**Assigning Functions to Variables**
+>It is possible to *assign* **functions** to *variables* in *JavaScript*.
+>
+>*example*:
+>```
+>const square = function(x) {
+>    return x * x;
+>}
+>
+>// prints 25
+>square(5);
+>
+>const foo = square;
+>
+>// prints 36
+>foo(6);
+>
+>```
+
 
 JavaScript Higher Order Functions & Arrays
 -------------
@@ -395,3 +453,4 @@ Helpful Links
 > *YouTube tutorial*
 > - [JavaScript - Learn to Chain Map, Filter, and Reduce](https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4)
 > - [Eloquent JavaScript Tutorial 5 High-order Functions](https://www.youtube.com/watch?v=nOfrQE4CJso)
+> - [Understanding Higher-Order Functions in JavaScript](https://blog.bitsrc.io/understanding-higher-order-functions-in-javascript-75461803bad)
