@@ -24,7 +24,7 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // filtered is [12, 130, 44]
 
 
-// map
+// map example 1
 
 var kvArray = [
   { key: 1, value: 10 },
@@ -40,6 +40,37 @@ var reformattedArray = kvArray.map(function(obj) {
 
 // reformattedArray is now [{1: 10}, {2: 20}, {3, 30}]
 // kvArray is still [ { key: 1, value: 10 }, { key: 2, value: 20 }, { key: 3, value: 30 } ]
+
+// map example 2
+// Let's say we have an array of numbers and we want to create a new array which
+// contains double of each value of the first array.
+
+// solution without Higher-Order Function.
+
+const arr1 = [1, 2, 3];
+const arr2 = [];
+
+for(let i = 0; i < arr1.length; i++) {
+  arr2.push(arr1[i] * 2);
+}
+
+// prints [2, 4, 6]
+console.log(arr2);
+
+// solution with Higher-Order Function map()
+
+const arr1 = [1, 2, 3];
+const arr2 = arr1.map(function(item) {
+  return item * 2;
+});
+
+console.log(arr2);
+
+// solution using map() and es6 syntax
+
+const arr1 = [1, 2, 3];
+const arr2 = arr1.map(item => item * 2);
+console.log(arr2);
 
 
 // reduce

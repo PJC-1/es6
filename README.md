@@ -62,9 +62,11 @@ Functional Programming
 
 JavaScript Higher Order Functions & Arrays
 -------------
->  **High-order Functions**
+>  **Higher-order Functions**
 >  **Functions** that operate on other functions, either by taking them as **arguments** or by **returning** them, are called **higher-order functions**.
->  
+>
+> So, *simply* put, a **Higher-Order function** is a **function** that receives a **function** as an **argument** or **returns** the **function** as **output**.
+>
 >  Higher-order functions allow us to *abstract over **actions**, not just **values**.
 >  1. functions that **create** new functions.
 >  ```
@@ -213,9 +215,10 @@ JavaScript Higher Order Functions & Arrays
 >
 
 >
->**map()**
+>**Array.prototype.map**
 >
 >The ```map()``` method creates (*returns*) a **new array** with the results of calling a provided function on every element in the calling array. In other words ```map()``` is used to **modify** each *element* in the ```array```.
+>The ```map()``` method will take every **returned** value from the **callback** function and creates a **new array** using those values.
 >
 >Example:
 >```
@@ -234,9 +237,9 @@ JavaScript Higher Order Functions & Arrays
 >```map``` calls a provided ```callback``` function **once for each element** in an array, in order, and constructs a new array from the results. ```callback``` is invoked only for indexes of the array which have assigned values, including ```undefined```. It is not called for missing elements of the array (that is, indexes that have never been set, which have been deleted or which have never been assigned a value).
 >
 >```callback``` is invoked with three arguments:
-> - the value of the element
-> - the index of the element
-> - the Array object being traversed
+> - the **value** of the element
+> - the **index** of the element
+> - the **Array object** being traversed
 >
 >```map``` does not mutate the array on which it is called (although ```callback```, if invoked, may do so).
 >
@@ -454,3 +457,4 @@ Helpful Links
 > - [JavaScript - Learn to Chain Map, Filter, and Reduce](https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4)
 > - [Eloquent JavaScript Tutorial 5 High-order Functions](https://www.youtube.com/watch?v=nOfrQE4CJso)
 > - [Understanding Higher-Order Functions in JavaScript](https://blog.bitsrc.io/understanding-higher-order-functions-in-javascript-75461803bad)
+> - [When (and why) you should use ES6 arrow functions — and when you shouldn’t](https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26)
