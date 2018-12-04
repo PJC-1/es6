@@ -188,9 +188,9 @@ JavaScript Higher Order Functions & Arrays
 >
 
 >
->**filter()**
+>**Array.prototype.filter**
 >
->The ```filter()``` method creates (*returns*) a **new array** with all elements that pass the test implemented by the provided function.
+>The ```filter()``` method creates (*returns*) a **new array** with all elements that pass the test implemented by the provided function (*callback*).
 >
 >Example:
 >
@@ -207,9 +207,9 @@ JavaScript Higher Order Functions & Arrays
 >```filter()``` calls a provided ```callback``` function once for each element in an array, and constructs a new array of all the values for which ```callback``` returns *a value that coerces to ```true```*. ```callback``` is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the ```callback``` test are simply skipped, and are not included in the array.
 >
 >```callback``` is invoked with three arguments:
-> - the value of the element
-> - the index of the element
-> - the Array object being traversed
+> - the **value** of the element
+> - the **index** of the element
+> - the **Array object** being traversed
 >
 >```filter()``` does not mutate the array on which it is called.
 >
