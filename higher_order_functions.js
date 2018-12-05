@@ -175,6 +175,36 @@ const sum2 = arr2.reduce(function(accumulator, currentValue) {
 // prints 35
 console.log(sum2);
 
+// reduce example 3
+// consider the following data:
+
+let data = [
+  {
+    country: 'China',
+    pop: 1409517397,
+  },
+  {
+    country: 'India',
+    pop: 1339180127,
+  },
+  {
+    country: 'USA',
+    pop: 324459463,
+  },
+  {
+    country: 'Indonesia',
+    pop: 263991379,
+  }
+]
+
+// Using the reduce() method, how would you sum up the population of every country except China?
+const sum3 = data.reduce((acc, val) => {
+  return val.country == 'China' ? acc : acc + val.pop;
+}, 0);
+
+// prints 1927630969
+console.log(sum3);
+
 // bind
 
 function list() {
