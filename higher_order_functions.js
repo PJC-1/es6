@@ -135,11 +135,45 @@ console.log(ages);
 
 // reduce
 
+// reduce example 1
 var total = [0, 1, 2, 3].reduce(function(sum, value) {
   return sum + value;
 }, 0);
 
 // total is 6
+
+// reduce example 2
+// Let's say we have to sum an array of numbers.
+
+// // without higher-order function
+// const arr = [5, 7, 1, 8, 4];
+// let sum = 0;
+// for(let i = 0; i < arr.length; i++) {
+//   sum = sum + arr[i];
+// }
+//
+// // prints 25
+// console.log(sum);
+
+// with higher-order function reduce
+
+const arr = [5, 7, 1, 8, 4];
+const sum = arr.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+});
+
+// prints 25
+console.log(sum);
+
+
+// we can also provide an initial value to this function
+const arr2 = [5, 7, 1, 8, 4];
+const sum2 = arr2.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 10);
+
+// prints 35
+console.log(sum2);
 
 // bind
 
