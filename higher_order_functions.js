@@ -133,6 +133,30 @@ const ages = birthYear.map(age => 2018 - age);
 //prints [43, 21, 16, 23, 33]
 console.log(ages);
 
+// implementing your own higher-order function map
+// Let's say, we have an array of strings and we want to convert this array to
+// an array of integers, where each element represent the lenth of the string in the original array.
+
+const strArray = ['JavaScript', 'Python', 'PHP', 'Java', 'C'];
+
+function mapForEach(arr, fn) {
+  const newArray = [];
+  for(let i = 0; i < arr.length; i++) {
+    newArray.push(
+      fn(arr[i])
+    );
+  }
+  return newArray;
+}
+
+const len = mapForEach(strArray, item => {
+  return item.length;
+});
+
+// prints [ 10, 6, 3, 4, 1 ]
+console.log(len);
+
+
 // reduce
 
 // reduce example 1
