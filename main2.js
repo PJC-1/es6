@@ -108,22 +108,32 @@ console.log(sortByHeight(a));
 // example: "John F Kennedy"
 // output: "JFK"
 
+// es5 solution
+// function getInitials(name) {
+//   let initials = "";
+//   let waitingForSpace = false;
+//
+//   for(var i = 0; i < name.length; i++) {
+//     if(!waitingForSpace) {
+//       initials += name[i];
+//       waitingForSpace = true;
+//     }
+//
+//     if(name[i] === " ") {
+//       waitingForSpace = false;
+//     }
+//   }
+//
+//   return initials;
+// }
+
+// es6 Solution
 function getInitials(name) {
-  let initials = "";
-  let waitingForSpace = false;
-
-  for(var i = 0; i < name.length; i++) {
-    if(!waitingForSpace) {
-      initials += name[i];
-      waitingForSpace = true;
-    }
-
-    if(name[i] === " ") {
-      waitingForSpace = false;
-    }
-  }
-
-  return initials;
+  return name.split(" ")
+    .map(word => {
+      return word[0];
+    })
+    .join('');
 }
 
 console.log(getInitials("John F Kennedy"));
