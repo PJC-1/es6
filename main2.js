@@ -101,3 +101,29 @@ function sortByHeight(a) {
 
 const a = [-1, 150, 190, 170, -1, -1, 160, 180];
 console.log(sortByHeight(a));
+
+
+// GET INITIALS
+// Challenge is to parse a javascript string in order to obtain the initals of that string.
+// example: "John F Kennedy"
+// output: "JFK"
+
+function getInitials(name) {
+  let initials = "";
+  let waitingForSpace = false;
+
+  for(var i = 0; i < name.length; i++) {
+    if(!waitingForSpace) {
+      initials += name[i];
+      waitingForSpace = true;
+    }
+
+    if(name[i] === " ") {
+      waitingForSpace = false;
+    }
+  }
+
+  return initials;
+}
+
+console.log(getInitials("John F Kennedy"));
