@@ -137,3 +137,21 @@ function getInitials(name) {
 }
 
 console.log(getInitials("John F Kennedy"));
+
+// CHECK FOR PALINDROMES
+// Return true if the given string is a palindrome. Otherwise, return false.
+// A palindrome is a word or sentence that's spelled the same way both forward and backward
+// ignoring puctuation, case, and spacing.
+
+function palindrome(str) {
+  var reg = /[\W_]/g;
+  var smallStr = str.toLowerCase().replace(reg, "");
+  var reversed = smallStr.split("").reverse().join("");
+  console.log(reversed);
+  if(reversed === smallStr) {
+    return true;
+  }
+  return false;
+}
+
+palindrome("_e ye");
