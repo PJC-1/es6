@@ -154,4 +154,34 @@ function palindrome(str) {
   return false;
 }
 
-palindrome("_e ye");
+// returns true
+console.log(palindrome("_e ye"));
+
+
+// FIND THE LONGEST WORD IN A STRING
+// Return the length of the longest word in the provided sentence.
+function findLongestWord(str) {
+  var words = str.split(" ");
+  var longest = "";
+
+  for(var word of words) {
+    if(word.length > longest.length) {
+      longest = word;
+    }
+  }
+
+  return longest.length;
+
+}
+
+// returns 6
+findLongestWord("The quick brown fox jumped over the lazy dog");
+
+//solution using sort
+function findLongestWord(str) {
+  return str.split(" ").sort(function(a, b) {
+    return b.length - a.length;
+  })[0].length;
+}
+
+findLongestWord("The quick brown fox jumped over the lazy dog");
