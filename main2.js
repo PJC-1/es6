@@ -192,12 +192,23 @@ findLongestWord("The quick brown fox jumped over the lazy dog");
 // Make sure the rest of the word is in lower case.
 // Also capitalize connecting words like "the" and "of".
 
+// es5 solution
 function titleCase(str) {
   var words= str.toLowerCase().split(" ");
   for(var i = 0; i < words.length; i++) {
     words[i] = words[i][0].toUpperCase() + words[i].slice(1);
   }
   return words.join(" ");
+}
+
+
+// solution using map
+function titleCase(str) {
+  var titled = str.toLowerCase().split(" ").map(function(element) {
+    return element[0].toUpperCase() + element.slice(1);
+  });
+
+  return titled.join(" ");
 }
 
 // returns "Hello World"
