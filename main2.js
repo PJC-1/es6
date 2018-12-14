@@ -295,6 +295,7 @@ console.log(configrmEnding("Bastian", "n"));
 // Repeat a given string (first argument) num times (second argument).
 // Return an empty string if num is not a postive number.
 
+// for loop solution
 function repeatStringNumTimes(str, num) {
   var result = '';
   if(num < 0) {
@@ -304,8 +305,18 @@ function repeatStringNumTimes(str, num) {
   for(var i = 0; i < num; i++) {
     result += str;
   }
-  
+
   return result;
+}
+
+// recursion solution
+function repeatStringNumTimes(str, num) {
+  if(num < 0) return "";
+
+  // base case
+  if(num === 1) return str;
+
+  return str + repeatStringNumTimes(str, num - 1);
 }
 
 repeatStringNumTimes("abc", 3);
