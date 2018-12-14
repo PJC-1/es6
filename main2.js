@@ -275,12 +275,18 @@ console.log(largestOfFour([[4,5,1,3],[13,27,18,26],[32,35,37,39],[1000,1001,857,
 // CONFIRM THE ENDING
 // Check if a string (first argument, str) ends with the given target string (second argument, target).
 
+// substr solution
 function confirmEnding(str, target) {
   if(str.substr(-target.length) === target) {
     return true;
   } else {
     return false;
   }
+}
+
+// slice solution
+function confirmEnding(str, target) {
+  return str.slice(-target.length) === target;
 }
 
 console.log(configrmEnding("Bastian", "n"));
