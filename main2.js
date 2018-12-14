@@ -271,3 +271,16 @@ function largestOfFour(arr) {
 
 // outputs [5, 27, 39, 1001]
 console.log(largestOfFour([[4,5,1,3],[13,27,18,26],[32,35,37,39],[1000,1001,857,1]]));
+
+// CONFIRM THE ENDING
+// Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+function confirmEnding(str, target) {
+  if(str.substr(-target.length) === target) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(configrmEnding("Bastian", "n"));
