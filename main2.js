@@ -339,3 +339,19 @@ console.log(truncateString("A-tisket a-tasket A green and yellow basket", 11));
 console.log(truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length ));
 // output "hel..."
 console.log(truncateString("hello world", 3));
+
+// CHUNKY MONKEY
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimentional array.
+
+function chuckArrayInGroup(arr, size) {
+  var groups = [];
+
+  while(arr.length > 0) {
+    groups.push(arr.slice(0, size));
+    arr = arr.slice(size);
+  }
+  return groups;
+}
+
+// outputs [ [ 'a', 'b' ], [ 'c', 'd' ] ]
+console.log(chuckArrayInGroup(["a", "b", "c", "d"], 2));
