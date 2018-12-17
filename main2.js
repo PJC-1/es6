@@ -386,6 +386,7 @@ console.log(slasher([1, 2, 3], 2));
 // For example ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
 // Lastly, ["Alien", "line"], should return true because all of the letters in "line" are presend in "Alien".
 
+// indexOf solution
 function mutation(arr) {
   var firstWord = arr[0].toLowerCase();
   var secondWord = arr[1].toLowerCase();
@@ -395,6 +396,33 @@ function mutation(arr) {
   }
   return true;
 }
+
+// for of loop, indexOf solution
+function mutation(arr) {
+  var firstWord = arr[0].toLowerCase();
+  var secondWord = arr[1].toLowerCase();
+
+  for( var letter of secondWord) {
+    if(firstWord.indexOf(letter) === -1) return false;
+  }
+
+  return true;
+}
+
+
+// for of loop, includes solution
+function mutation(arr) {
+  var firstWord = arr[0].toLowerCase();
+  var secondWord = arr[1].toLowerCase();
+
+  for( var letter of secondWord) {
+    if(!firstWord.includes(letter)) return false;
+  }
+
+  return true;
+}
+
+
 
 // returns false
 console.log(mutation([]"hello", "hey"]));
