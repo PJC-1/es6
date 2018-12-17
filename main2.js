@@ -344,7 +344,7 @@ console.log(truncateString("hello world", 3));
 // Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimentional array.
 
 // slice solution
-function chuckArrayInGroup(arr, size) {
+function chunkArrayInGroup(arr, size) {
   var groups = [];
 
   while(arr.length > 0) {
@@ -355,7 +355,7 @@ function chuckArrayInGroup(arr, size) {
 }
 
 // splice solution
-function chuckArrayInGroup(arr, size) {
+function chunkArrayInGroup(arr, size) {
   var groups = [];
 
   while(arr.length > 0) {
@@ -365,4 +365,17 @@ function chuckArrayInGroup(arr, size) {
 }
 
 // outputs [ [ 'a', 'b' ], [ 'c', 'd' ] ]
-console.log(chuckArrayInGroup(["a", "b", "c", "d"], 2));
+console.log(chunkArrayInGroup(["a", "b", "c", "d"], 2));
+
+
+// SLASHER FLICK
+// Return the remaining elements of an array after chopping off n elements from the head.
+// The head means the beginning of the array, or the zeroth index.
+
+function slasher(arr, howMany) {
+  arr.splice(0, howMany);
+  return arr;
+}
+
+// returns [3]
+console.log(slasher([1, 2, 3], 2));
