@@ -431,6 +431,7 @@ console.log(mutation([]"hello", "hey"]));
 // Remove all falsy values from an array.
 // Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
 
+// for of loop solution
 function bouncer(arr) {
   var result = [];
   for(var item of arr) {
@@ -439,6 +440,11 @@ function bouncer(arr) {
     }
   }
   return result;
+}
+
+// filter solution
+function bouncer(arr) {
+  return arr.filter(val => val);
 }
 
 // returns [7, "ate", 9]
