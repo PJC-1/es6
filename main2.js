@@ -426,3 +426,20 @@ function mutation(arr) {
 
 // returns false
 console.log(mutation([]"hello", "hey"]));
+
+// FALSY BOUNCER
+// Remove all falsy values from an array.
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+
+function bouncer(arr) {
+  var result = [];
+  for(var item of arr) {
+    if(item) {
+      result.push(item);
+    }
+  }
+  return result;
+}
+
+// returns [7, "ate", 9]
+console.log(bouncer([7, "ate", "", false, 9]));
