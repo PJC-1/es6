@@ -73,6 +73,21 @@ console.log(seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6));
 //   reutrn arr.filter(val => !rest.includes(val));
 // }
 
+//Solution 3: splice, for of, push
+function seekAndDestroy(arr) {
+  var args = Array.from(arguments);
+  args.splice(0, 1);
+  var targets = args;
+  var result = [];
+
+  for(var num of arr) {
+    if(targets.indexOf(num) === -1) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
 
 //CHALLENGE 4: SORT BY HEIGHT
 // Some people are standing in a row in a park. There are trees between them which cannot be moved
