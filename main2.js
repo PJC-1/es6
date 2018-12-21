@@ -507,3 +507,22 @@ function rot13(str) {
 
 // [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]
 console.log(rot13("URYYB JBEYQ"));
+
+
+// SUM ALL NUMBERS IN A RANGE
+// We'll pass you an array of two numbers.
+// Return the sum of those two numbers and all numbers between them.
+function sumAll(arr) {
+  var start = Math.min(arr[0], arr[1]);
+  var end = Math.max(arr[0], arr[1]);
+  var total = 0;
+
+  for(var i = start; i < end; i++) {
+    total += i;
+  }
+
+  return total;
+}
+
+// returns 6
+console.log(sumAll([1, 4]));
