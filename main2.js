@@ -597,3 +597,24 @@ function convertToRoman(num) {
 
 // returns XXXVI
 console.log(convertToRoman(36));
+
+// WHEREFORE ART THOU
+// MAKE A FUNCTION THAT LOOKS THROUGH AN ARRAY OF OBJECTS (FIRST ARGUMENT) AND RETURNS AN ARRAY OF ALL OBJECTS THAT HAVE MATCHING PROPERTY AND VALUE PAIRS (SECOND ARGUMENT).
+// EACH PROPERTY AND VALUE PAIR OF THE SOURCE OBJECT HAS TO BE PRESENT IN THE OBJECT FROM THE COLLECTION IF IT IS TO BE INCLUDED IN THE RETURNED ARRAY.
+// FOR EXAMPLE, IF THE FIRST ARGUMENT IS [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, {first: "Tybalt", last: "Capulet" }], AND THE SECOND ARGUMENT IS { last: "Capulet" }
+// THEN YOU MUST RETURN THE THIRD OBJECT FROM THE ARRAY (THE FIRST ARGUMENT), BECAUSE IT CONTAINS THE PROPERTY AND ITS VALUE, THAT WAS PASSED ON AS THE SECOND ARGUMENT.
+function whatIsInAName(collection, source) {
+  var keys = Object.keys(source);
+
+  return collection.filter(function(obj) {
+    for(var key of keys) {
+      if(!obj.hasOwnProperty(key) || obj[key] !== source[key]) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+// returns [ { first: 'Tybalt', last: 'Capulet' } ]
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, {first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
