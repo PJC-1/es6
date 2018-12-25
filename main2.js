@@ -792,3 +792,43 @@ var toLowerCase = function(str) {
 
 // returns "hello world"
 console.log(toLowerCase("HELLO WORLD"));
+
+
+// MISSING LETTERS
+// Find the missing letter in the passed letter range and return it.
+// If all letters are present in the range, return undefined.
+
+function fearNotLetter(str) {
+
+    // use toLowerCase() incase mixed-casing is passed into the function
+    str = str.toLowerCase();
+
+    // find the ascii code for the first position of the passed in string
+    var firstAscii = str[0].charCodeAt();
+
+    // find the letter of the passed in string's first character position
+    var firstChar = String.fromCharCode(str[0].charCodeAt());
+
+    // loop through the length of the passed in string
+    for(var i = 0; i < str.length; i++) {
+
+        // this variable calculates the character based on the sum of the starting ascii code and the index
+        var asciiChar = String.fromCharCode(firstAscii + i);
+
+        // compare the character of the passed in string to what the ascii character
+        if(str[i] !== asciiChar) {
+
+            // if the character of the passed in string is not equal to the ascii character, return the ascii character
+            return asciiChar;
+
+        }
+
+    }
+
+    // if all letters are present in the range, return undefined
+    return undefined;
+
+}
+
+// returns "e"
+console.log(fearNotLetter("bcdfg"));
