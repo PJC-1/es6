@@ -655,6 +655,8 @@ console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "l
 // Pig Latin takes the first consonant (or sonsonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
 // If a word begins with a vowel you just add "way" to the end.
 // Input strings are guaranteed to be English words in all lowercase.
+
+// Solution with regular expressions
 function translatePigLatin(str) {
   var firstVowel = str.match(/[aeiou]/);
   var firstPosition = str.indexOf(firstVowel);
@@ -664,6 +666,23 @@ function translatePigLatin(str) {
   }
 
   return str + "way";
+}
+
+// Solution without regular expressions
+function translatePigLatin(str) {
+  var firstPosition = findFirstVowelPosition(str);
+  if(firstPosition > 0) {
+    return str.slice(firstPosition) + str.slice(0, firstPosition) + "ay";
+  }
+  return str + "way";
+}
+
+function findFirstVowelPosition(str) {
+  for(var i = 0; i < str.length; i++) {
+    if("aeiou".indexOf(str[i]) !== -1) {
+      return i;
+    }
+  }
 }
 
 // onsonantcay
