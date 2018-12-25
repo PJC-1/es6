@@ -687,3 +687,34 @@ function findFirstVowelPosition(str) {
 
 // onsonantcay
 console.log(translatePigLatin("consonant"));
+
+// DNA PAIRING
+// The DNA strand is missing the pairing element.
+// Take each character, get its pair, and return the results as a 2nd array.
+// Base pairs are a pair of AT and CG.
+// Matach the missing element to the provided character.
+// Return the provided character as the first element in each array.
+// For example, for the input GCG, return [["G", "C"], ["C", "G"], ["G", "C"]]
+// The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+
+function pair(str) {
+  str = str.toUpperCase();
+  str = str.split("");
+  var placeHolderArray = [];
+  for(var i = 0; i < str.length; i++) {
+    if(str[i] == "G") {
+      placeHolderArray.push(["G", "C"]);
+    } else if(str[i] == "C") {
+      placeHolderArray.push(["C", "G"]);
+    } else if(str[i] == "A") {
+      placeHolderArray.push(["A", "T"]);
+    } else if(str[i] == "T") {
+      placeHolderArray.push(["T", "A"]);
+    }
+  }
+  str = placeHolderArray;
+  return str;
+}
+
+// returns [ [ 'T', 'A' ], [ 'A', 'T' ], [ 'C', 'G' ], [ 'G', 'C' ] ]
+console.log(pair("TACG"));
