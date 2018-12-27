@@ -857,18 +857,30 @@ console.log(fearNotLetter("bcdfg"));
 // Output: 5
 
 var repeatedNTimes = function(A) {
+
+  // total elements in the array => A.length
+  // "N times" => A.length / 2
+  // "unique elements" int he array => (A.length/2) + 1
+
+  // create an empty object to store the unique elements from the array.
   var map = Object.create(null);
 
+  // loop through the length of the passed in array.
   for(var i = 0; i < A.length; i++) {
 
+    // check if the value of the array element at the specified index exists in the map object.
     if(map[A[i]]) {
+      // if the key exists, then return the array element.
       return A[i];
     }
 
+    // if the array element does not exists in the map object, then it is a unique element.
+    // add it to the map object.
     map[A[i]] = true;
 
   }
 
+  // if all elements in the passed in array are unique, then return -1
   return -1;
 
 }
