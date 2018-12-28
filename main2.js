@@ -915,24 +915,54 @@ repeatedNTimes([1, 2, 3, 3]);
 // Each words[i] will have length in range [1, 12].
 // words[i] will only consist of lowercase letters.
 
-var uniqueMorseRepresentations = function(words) {
+// Return the number of different transformations among all words we have.
+//
+// Example:
+// Input: words = ["gin", "zen", "gig", "msg"]
+// Output: 2
+// Explanation:
+// The transformation of each word is:
+// "gin" -> "--...-."
+// "zen" -> "--...-."
+// "gig" -> "--...--."
+// "msg" -> "--...--."
+//
+// There are 2 different transformations, "--...-." and "--...--.".
+// Note:
+//
+// The length of words will be at most 100.
+// Each words[i] will have length in range [1, 12].
+// words[i] will only consist of lowercase letters.
 
+var uniqueMorseRepresentations = function(words) {
+    // array of morse code
     var morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
 
+    // array of letters
     var alphabets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
+    // new instance of set
+    // A Set data structure allows to add data to a container
     var dict = new Set();
 
-    for(var i = 0; i <= words.length - 1; i++)
-    {
+    // loop through the passed in array of words
+    for(var i = 0; i <= words.length - 1; i++) {
+        // empty string to store the word/morse code
         var temp = "";
 
-        for(var j = 0; j <= words[i].length - 1; j++)
-            {
-                temp = temp.concat(morse[alphabets.indexOf(words[i][j])]);
-            }
+        // loop through each character of the word[i]
+        for(var j = 0; j <= words[i].length - 1; j++) {
+            // concatinate the word character's corresponding morse code
+            temp = temp.concat(morse[alphabets.indexOf(words[i][j])]);
+        }
+        // add the transformation (morse code of the word) to the dict set data structure
         dict.add(temp);
     }
 
+    // return the size of the set
     return dict.size;
 };
+
+
+// returns 2
+uniqueMorseRepresentations(["gin", "zen", "gig", "msg"]);
