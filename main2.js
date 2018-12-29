@@ -966,3 +966,18 @@ var uniqueMorseRepresentations = function(words) {
 
 // returns 2
 uniqueMorseRepresentations(["gin", "zen", "gig", "msg"]);
+
+// BOO HOO
+// Check if a value is classified as boolean primitive. Return true or false.
+// BOO HOO
+// Check if a value is classified as boolean primitive. Return true or false.
+function boo(bool) {
+  if(typeof(bool) === "boolean") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// returns false
+console.log(boo(null));
