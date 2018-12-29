@@ -969,9 +969,8 @@ uniqueMorseRepresentations(["gin", "zen", "gig", "msg"]);
 
 // BOO HOO
 // Check if a value is classified as boolean primitive. Return true or false.
-// BOO HOO
-// Check if a value is classified as boolean primitive. Return true or false.
 function boo(bool) {
+  // the typeof operator returns a string indicating the type of the unevaluated operand.
   if(typeof(bool) === "boolean") {
     return true;
   } else {
@@ -981,3 +980,35 @@ function boo(bool) {
 
 // returns false
 console.log(boo(null));
+
+
+// SORTED UNION
+// Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+// In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+// The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+function unite(arr1, arr2, arr3) {
+  // create a variable to store the file result
+  // set it to the first passed array, this can also be set to an empty array
+  var placeHolder = arr1;
+
+  // first loop to iterate through the arguments passed into the function
+  for(var i = 0; i < arguments.length; i++) {
+    // second loop to iterates through each element in the array
+    for(var j = 0; j < arguments[i].length; j++) {
+      // check if the placeHolder array contains the current element
+      if(placeHolder.indexOf(arguments[i][j]) === -1) {
+        //
+        placeHolder.push(arguments[i][j]);
+      }
+    }
+  }
+
+  // set the arr1 to the placeHolder, returning the placeHolder array is the same result
+  arr1 = placeHolder;
+
+  // return arr1 array
+  return arr1;
+}
+
+// returns [ 1, 2, 3, 5, 4 ]
+console.log(unite([1, 2, 3], [5, 2, 1, 4], [2, 1]));
