@@ -1012,3 +1012,41 @@ function unite(arr1, arr2, arr3) {
 
 // returns [ 1, 2, 3, 5, 4 ]
 console.log(unite([1, 2, 3], [5, 2, 1, 4], [2, 1]));
+
+
+// CONVERT HTML ENTITIES
+// Convert the characters "&", "<", ">", '"' (double quote), and "'" (apostrophe), in a string to their corresponding HTML entities.
+function convert(str) {
+  var splitStr = str.split("");
+  for(var char of splitStr) {
+    var arrIndex;
+    console.log(char);
+    if(char === "&") {
+      console.log("found ampersand");
+      arrIndex = splitStr.indexOf(char);
+      splitStr[arrIndex] = "&#38;";
+    } else if(char === "<") {
+      console.log("found less than");
+      arrIndex = splitStr.indexOf(char);
+      splitStr[arrIndex] = "&#60;";
+    } else if(char === ">") {
+      console.log("found greater than");
+      arrIndex = splitStr.indexOf(char);
+      splitStr[arrIndex] = "&#62;";
+    } else if(char === '"') {
+      console.log('found double quotation mark');
+      arrIndex = splitStr.indexOf(char);
+      splitStr[arrIndex] = "&#34;";
+    } else if(char === "'") {
+      console.log("found single quotation mark");
+      arrIndex = splitStr.indexOf(char);
+      splitStr[arrIndex] = "&#39;";
+    }
+  }
+  return splitStr.join("");
+}
+
+// returns "Dolce &#38; Gabanna &#60; &#62; &#34;"
+console.log(convert('Dolce & Gabanna < > "'));
+// returns "Rocket Joe&#39;s"
+console.log(convert("Rocket Joe's"));
