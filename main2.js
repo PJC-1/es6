@@ -1017,13 +1017,18 @@ console.log(unite([1, 2, 3], [5, 2, 1, 4], [2, 1]));
 // CONVERT HTML ENTITIES
 // Convert the characters "&", "<", ">", '"' (double quote), and "'" (apostrophe), in a string to their corresponding HTML entities.
 function convert(str) {
+  // convert the passed in string into an array containing each character
   var splitStr = str.split("");
+  // loop through the elements/characters in the splitStr array
   for(var char of splitStr) {
+    // create a local variable that will store the index of the character being interated
+    // in the splitStr array.
     var arrIndex;
-    console.log(char);
+    // check if the character being iterated is an ampersand
     if(char === "&") {
-      console.log("found ampersand");
+      // set the arrIndex (local storage variable) to the index of the iterated character inside the splitStr array.
       arrIndex = splitStr.indexOf(char);
+      // set the "&" in the splitStr array to the HTML entity
       splitStr[arrIndex] = "&#38;";
     } else if(char === "<") {
       console.log("found less than");
@@ -1043,6 +1048,7 @@ function convert(str) {
       splitStr[arrIndex] = "&#39;";
     }
   }
+  // convert the splitStr array into a string and return it
   return splitStr.join("");
 }
 
@@ -1050,3 +1056,20 @@ function convert(str) {
 console.log(convert('Dolce & Gabanna < > "'));
 // returns "Rocket Joe&#39;s"
 console.log(convert("Rocket Joe's"));
+
+
+// DROP IT
+// Drop the elements of an array (first argument), starting from the front, until the predicate (second argument) returns true.
+// Return the rest of the array, otherwise return an empty array.
+function drop(arr, func) {
+  while(!func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+// returns [4]
+console.log(drop([1,2,3,4], function(n) {return n > 3;}));
+
+// returns [1, 0, 1]
+console.log(drop([0,1,0,1], function(n) {return n === 1;}));
