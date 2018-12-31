@@ -1073,3 +1073,34 @@ console.log(drop([1,2,3,4], function(n) {return n > 3;}));
 
 // returns [1, 0, 1]
 console.log(drop([0,1,0,1], function(n) {return n === 1;}));
+
+// STEAMROLLER
+// Flatten a nested array. You must account for varying levels of nesting.
+function steamrollArray(arr) {
+  // variable used to store result
+  var oneArray = [];
+  // invoking flatten function with passed in array
+  flatten(arr);
+
+  // define flatten function, which takes an array
+  function flatten(arr1) {
+    console.log("arr1: ", arr1);
+    // running for each on the array
+    arr1.forEach(function(arr2) {
+      console.log("arr2: ", arr2);
+      // check if element in the array is an Array
+      if(!Array.isArray(arr2)) {
+        // if element is not an array then add to storage array
+        oneArray.push(arr2);
+      } else {
+        // if element is an array, then call flatten again with the element as the passed in argument
+        flatten(arr2);
+      }
+    });
+  }
+  // return storage array
+  return oneArray;
+}
+
+// returns => [ 1, 2, 3, 4 ]
+steamrollArray([1, [2], [3, [[4]]]]);
