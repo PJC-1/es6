@@ -1104,3 +1104,37 @@ function steamrollArray(arr) {
 
 // returns => [ 1, 2, 3, 4 ]
 steamrollArray([1, [2], [3, [[4]]]]);
+
+
+// ARGUMENTS OPTIONAL
+// Create a function that sums two arguments together.
+// If only one argument is provided, then return a function that expects one argument and returns the sum.
+// For example, addTogether(2, 3) should return 5.
+// and addTogether(2) should return a function.
+// Calling this returned function with a single argument will then return the sum:
+// var sumTwoAnd = addTogether(2);
+// sumTwoAnd(3) returns 5.
+// If either argument isn't a valid number, return undefined.
+function addTogether() {
+  var params = [].slice.call(arguments);
+  if(!params.every(function(param) {
+    return typeof param === "number";
+  })){
+    return undefined;
+  }
+  if(params.length === 2) {
+    return params[0] + params[1];
+  } else {
+    var firstParam = params[0];
+    var addOneMore = function(secondParam) {
+      return addTogether(firstParam, secondParam);
+    };
+    return addOneMore;
+  }
+}
+
+var test = addTogether(2)(3);
+// returns 5
+console.log(test);
+// returns 5
+console.log(addTogether(2, 3));
