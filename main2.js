@@ -1138,3 +1138,35 @@ var test = addTogether(2)(3);
 console.log(test);
 // returns 5
 console.log(addTogether(2, 3));
+
+// MAP THE DEBRIS
+// Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+//
+// The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+//
+// You can read about orbital periods on Wikipedia.
+//
+// The values should be rounded to the nearest whole number. The body being orbited is Earth.
+//
+// The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 (km*km*km)(1/5/5).
+
+function orbitalPeriod(arr) {
+  // the sum of the masses of the two bodies
+  var GM = 398600.4418;
+  // radius of the earth
+  var earthRadius = 6367.4447;
+  // empty array to store the returned result
+  var newArray = [];
+  // for loop to be able to handle multiple objects in the array
+  for(var i = 0; i < arr.length; i++) {
+    // applying the orbital period formula and storing the value int he results variable
+    var results = Math.round(2 * Math.PI * Math.sqrt(Math.pow(earthRadius + arr[0].avgAlt, 3) / GM));
+    // pushing the new object containing the the orbital period value into the newArray
+    newArray.push({name : arr[i].name, orbitalPeriod: results});
+  }
+
+  // returning the newArray containing the orbital period values
+  return newArray;
+}
+
+console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]));
