@@ -1170,3 +1170,54 @@ function orbitalPeriod(arr) {
 }
 
 console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]));
+
+// PAIRWISE
+// Given an array arr, find element pairs whose sum equal the second argument arg
+// and return the sum of their indices.
+// If multiple pairs are possible that have the same numeric elements but different indices,
+// return the smallest sum of indices.
+// Once an element has been used, it cannot be reused to pair with another.
+// For example pairwise([7, 9, 11, 13, 15], 20) returns 6
+// The pairs that sum to 20 are [7, 13] and [9, 11].
+// We can then write out the array with their indices and values.
+// Index 0 1 2 3 4
+// Value 7 9 11 13 15
+// Below we'll take their corresponding indices and add them.
+// 7 + 13 = 20 -> Indices 0 + 3 = 3
+// 9 + 11 = 20 -> Indices 1 + 2 = 3
+// 3 + 3 = 6 -> Return 6
+function pairwise(arr, arg) {
+  // sum of the indices
+  var result = 0;
+  // empty object for storage the array elements and indices
+  var obj = {};
+
+  // initial loop to iterate through the arr elements
+  for(var i = 0; i < arr.length; i++) {
+
+    // second loop to be able to compare arr[i] with the next elements
+    for(var j = i+1; j < arr.length; j++) {
+
+      // check if any combination of elements sum up to arg and both keys do not exists in the obj object
+      if((arr[i] + arr[j] === arg) && (!obj[arr[i]] && !obj[arr[j]])) {
+
+        // set the key to arr[i] and the value to the index
+        obj[arr[i]] = arr.indexOf(arr[i]);
+
+        // add the value of the index to the result variable
+        result += obj[arr[i]];
+
+        // set the key to arr[i] and the value to the index
+        obj[arr[j]] = arr.indexOf(arr[j]);
+
+        // add the value of the index to the result variable
+        result += obj[arr[j]];
+      }
+    }
+  }
+  // return result variable
+  return result;
+}
+
+// return 6
+pairwise([7, 9, 11, 13, 15, 13], 20);
