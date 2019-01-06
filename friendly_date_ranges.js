@@ -24,6 +24,7 @@ function makeFriendlyDates(arr) {
   var date1 = arr[0].split("-");
   var date2 = arr[1].split("-");
   // Turn Strings into nums for month
+  // subtract 1 because the months in the monthNames array are zero indexed (array)
   date1[1] = Number(date1[1]) - 1;
   date2[1] = Number(date2[1]) - 1;
   date1[2] = Number(date1[2]);
@@ -33,18 +34,24 @@ function makeFriendlyDates(arr) {
   // Store name of months
   var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+  // check dates for different months, but within the same year
+  if(date2[1] - date1[1] >= 1 && (date2[0] - date1[0] === 0)) {
+    dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]) + ", " + date1[0]);
+    dateArray.push(monthNames[date2[1]] + ' ' + dayChange(date2[2]));
+    return dateArray;
   // check if the months are the same
-  if(date1[1] === date2[1]) {
+  }else if(date1[1] === date2[1]) {
     dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]));
     dateArray.push(dayChange(date2[2]));
     return dateArray;
+  // if the years between the two dates are not the same then include the year in the output
   } else if (date2[0] - date1[0] > 1) {
     dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]) + ", " + date1[0]);
     dateArray.push(monthNames[date2[1]] + ' ' + dayChange(date2[2]) + ", " + date2[0]);
 
     return dateArray;
-  }
-  else {
+  // else if the dates include years that are the same then do not include the year in the output
+  } else {
     dateArray.push(monthNames[date1[1]] + " " + dayChange(date1[2]));
     dateArray.push(monthNames[date2[1]] + " " + dayChange(date2[2]));
     return dateArray;
@@ -65,3 +72,6 @@ function makeFriendlyDates(arr) {
 
 // returns => [ 'July 1st', '4th' ]
 makeFriendlyDates(['2016-07-01', '2016-07-04']);
+
+// returns => [ 'March 1st, 2017', 'May 5th' ]
+makeFriendlyDates(['2017-03-01', '2017-05-05']);
