@@ -28,7 +28,8 @@ function makeFriendlyDates(arr) {
   date2[1] = Number(date2[1]) - 1;
   date1[2] = Number(date1[2]);
   date2[2] = Number(date2[2]);
-
+  date1[0] = Number(date1[0]);
+  date2[0] = Number(date2[0]);
   // Store name of months
   var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -37,11 +38,23 @@ function makeFriendlyDates(arr) {
     dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]));
     dateArray.push(dayChange(date2[2]));
     return dateArray;
+  } else if (date2[0] - date1[0] > 1) {
+    dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]) + ", " + date1[0]);
+    dateArray.push(monthNames[date2[1]] + ' ' + dayChange(date2[2]) + ", " + date2[0]);
+
+    return dateArray;
+  }
+  else {
+    dateArray.push(monthNames[date1[1]] + " " + dayChange(date1[2]));
+    dateArray.push(monthNames[date2[1]] + " " + dayChange(date2[2]));
+    return dateArray;
   }
   // reformat the day
   function dayChange(day) {
     if(day === 1) {
       return day + 'st';
+    } else if (day === 3) {
+      return day + 'rd';
     } else {
       return day + 'th';
     }
