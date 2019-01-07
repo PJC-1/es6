@@ -9,37 +9,34 @@
 // (C @ D = {1, 4} @ {2, 3} = {1, 2, 3, 4})
 
 function sym(args) {
-  // variable to store result
-  var result = [];
-  // variable to store the mapping of the arguments
-  var argMap = {};
-
-  // loop through the passed in arguments
-  for(var arg in arguments) {
-    // loop through each argument
-    for(var elem of arguments[arg]) {
-      // check if the argMap object contains the element being iterated
-      if(!argMap.hasOwnProperty(elem)) {
-        // if not, then set the key and value to 1
-        argMap[elem] = 1;
-      } else {
-        // else increment the key's value by 1
-        argMap[elem] += 1;
+  // slice all arguments into a single array
+  var argsArray = [].slice.call(arguments);
+  console.log("argsArray: ", argsArray);
+  // callback function to iterate through multiple arrays for reduce
+  function symDiff(arr1, arr2) {
+    console.log("arr1: ", arr1);
+    console.log("arr2: ", arr2);
+    // create array to store unique values
+    var uniqueVals = [];
+    for(var i = 0; i < arr1.length; i++) {
+      if(arr2.indexOf(arr1[i]) < 0 && uniqueVals.indexOf(arr1[i]) < 0) {
+        uniqueVals.push(arr1[i]);
       }
     }
+
+    arr2.forEach(function(item) {
+      if(arr1.indexOf(item) < 0 && uniqueVals.indexOf(item) < 0) {
+        uniqueVals.push(item);
+      }
+    });
+
+    return uniqueVals;
   }
 
-  // loop through the argMap object
-  for(var item in argMap) {
-    // check if the iterated key's value is equal to 1
-    if(argMap[item] === 1) {
-      // if yes, push the key into the results array
-      result.push(item);
-    }
-  }
-
-  // return the result array
-  return result;
+  return argsArray.reduce(symDiff);
 }
 // return [3, 4, 5]
 sym([1, 2, 3], [5, 2, 1, 4]);
+
+// return [1, 4, 5]
+sym([1, 2, 5], [2, 3, 5], [3, 4, 5]);
