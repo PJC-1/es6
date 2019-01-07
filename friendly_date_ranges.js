@@ -46,6 +46,16 @@ function makeFriendlyDates(arr) {
     dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]) + ", " + date1[0]);
     dateArray.push(monthNames[date2[1]] + ' ' + dayChange(date2[2]));
     return dateArray;
+  // same month, same day, different year
+  } else if((date1[1] === date2[1]) && (date1[2] === date2[2]) && (date2[0] - date1[0] >= 1)) {
+    dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]) + ", " + date1[0]);
+    dateArray.push(monthNames[date2[1]] + ' ' + dayChange(date2[2]) + ", " + date2[0]);
+    return dateArray;
+  // same month, but different years
+  } else if((date1[1] === date2[1]) && (date2[0] - date1[0] >= 1)) {
+    dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]) + ", " + date1[0]);
+    dateArray.push(monthNames[date2[1]] + ' ' + dayChange(date2[2]));
+    return dateArray;
   // check if the months are the same
   }else if(date1[1] === date2[1]) {
     dateArray.push(monthNames[date1[1]] + ' ' + dayChange(date1[2]));
@@ -85,3 +95,9 @@ makeFriendlyDates(['2017-03-01', '2017-05-05']);
 
 // returns => [ 'January 1st, 2018' ]
 makeFriendlyDates(['2018-01-01', '2018-01-01']);
+
+// returns => [ 'September 5th, 2022', "September 4th" ]
+makeFriendlyDates(['2022-09-05', '2023-09-04']);
+
+// returns => [ 'September 5th, 2022', "September 5th, 2023" ]
+makeFriendlyDates(['2022-09-05', '2023-09-05']);
