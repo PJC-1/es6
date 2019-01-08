@@ -229,6 +229,37 @@ const sum3 = data.reduce((acc, val) => {
 // prints 1927630969
 console.log(sum3);
 
+// reduce example 4
+// solution without higher order functions
+let vals = [5, 4, 10, 2, 9];
+
+
+function findMax(arr) {
+	let result = 0;
+	for(let val of vals) {
+		if(val > result) {
+			result = val;
+		}
+	}
+	return result;
+}
+
+let biggest = findMax(vals);
+// returns 10
+console.log(biggest);
+
+// solution using reduce
+function findMax(acc, val) {
+	if(val > acc) {
+		acc = val;
+	}
+	return acc;
+}
+
+let biggest = vals.reduce(findMax);
+// returns 10
+console.log(biggest);
+
 // bind
 
 function list() {

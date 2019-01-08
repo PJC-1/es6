@@ -13,6 +13,8 @@ function sym(args) {
   var argsArray = [].slice.call(arguments);
   console.log("argsArray: ", argsArray);
   // callback function to iterate through multiple arrays for reduce
+  // arr1 is the accumlator argument
+  // arr2 is the currentValue argument
   function symDiff(arr1, arr2) {
     console.log("arr1: ", arr1);
     console.log("arr2: ", arr2);
