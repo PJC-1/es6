@@ -249,14 +249,7 @@ let biggest = findMax(vals);
 console.log(biggest);
 
 // solution using reduce
-function findMax(acc, val) {
-	if(val > acc) {
-		acc = val;
-	}
-	return acc;
-}
-
-let biggest = vals.reduce(findMax);
+let biggest = vals.reduce((acc, val) => val > acc ? acc = val : acc);
 // returns 10
 console.log(biggest);
 
