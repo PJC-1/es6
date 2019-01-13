@@ -18,8 +18,9 @@
 //
 // The above arrows point to positions where the corresponding bits are different.
 var hammingDistance = function(x, y) {
-	// cache x and y as bits
-    let bitsX = (x).toString(2);
+  // cache x and y as bits, by using Number.prototype.toString()
+  // and passing toString the argument 2 (to convert number to bits).
+  let bitsX = (x).toString(2);
 	let bitsY = (y).toString(2);
 	// 32bit all zeros to start
 	let defaultBits = '00000000000000000000000000000000';
@@ -29,7 +30,10 @@ var hammingDistance = function(x, y) {
 
 	// use filter to compare the bits and return a new array of bits that diff
 	const diffBits = bitsX.split('').filter((bit, index, arr) => {
-		if(arr[index] != bitsY[index]) {
+    // check if bit from bitX matches bitY, if they do not match return the bit
+    // it doesn't matter if we return the bit from bitX or bitY, because the function
+    // will only return the number different bits.
+    if(arr[index] != bitsY[index]) {
 			return bit;
 		}
 	});
