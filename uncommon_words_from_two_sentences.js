@@ -20,35 +20,32 @@
 
 var uncommonFromSentences = function(A, B) {
     var map = {};
+    // emtpy array used to store the final results
     var result = [];
 
+    // split the string arguments into arrays
     var splitA = A.split(' ');
     var splitB = B.split(' ');
 
-    splitA.forEach(function(word) {
-      if(!map.hasOwnProperty(word)) {
-        map[word] = 1;
-      } else {
-        map[word] += 1;
-      }
-    });
+    // concatinate the two arrays
+    var concatAB = splitA.concat(splitB);
 
-    splitB.forEach(function(word) {
-      if(!map.hasOwnProperty(word)) {
-        map[word] = 1;
-      } else {
-        map[word] += 1;
-      }
-    });
+    // iterate over the concatinated array of words
+    // if the iterated word doesn't exists in the map then set the word as the key and set the value to 1
+    // else increment the existing word key's value by 1
+    concatAB.forEach(word => !map.hasOwnProperty(word) ? map[word] = 1 : map[word] += 1);
 
+    // iterate over the map
     for(key in map) {
-      if(map[key] === 1) {
-        result.push(key);
-      }
+        // for each key, if the value equals 1, then the key is considered "uncommon" by definition of the problem description
+        if(map[key] === 1) {
+            // add the key to the result array
+            result.push(key);
+        }
     }
 
+    // return the result array
     return result;
-
 };
 
 var A1 = "this apple is sweet";
