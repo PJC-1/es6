@@ -15,20 +15,15 @@
 
 var singleNumber = function(nums) {
     let map = {};
-
-    for(let i = 0; i < nums.length; i++) {
-        if(!map.hasOwnProperty(nums[i])) {
-            map[nums[i]] = 1;
+    nums.forEach( num => {
+        if( map.hasOwnProperty(num) ) {
+           delete map[num];
         } else {
-            map[nums[i]] += 1;
+            map[num] = true;
         }
-    };
+    });
 
-    for(let key in map) {
-        if(map[key] === 1) {
-            return key;
-        }
-    }
+    return Number(Object.keys(map)[0]);
 };
 
 //returns 4
