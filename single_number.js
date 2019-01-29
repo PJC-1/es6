@@ -14,15 +14,22 @@
 // Output: 4
 
 var singleNumber = function(nums) {
+    // empty object for storage
     let map = {};
+
+    // iterate over the passed in nums array
     nums.forEach( num => {
+        // check each element if it exists in the map object
         if( map.hasOwnProperty(num) ) {
-           delete map[num];
+            // if yes, then delete key from the object
+            delete map[num];
         } else {
+            // set the key to the iterated element
             map[num] = true;
         }
     });
 
+    // return the first element returned by object.keys of the map object
     return Number(Object.keys(map)[0]);
 };
 
