@@ -26,21 +26,30 @@
 // Output: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
 
 var toGoatLatin = function(S) {
-
+  // array of vowels
   const vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
+  // cached the character 'a'
   const aChar = 'a';
+  // split the passed in string
   const splitStr = S.split(' ');
 
+  // iterate over the split string
   const reformat = splitStr.map((item, index) => {
+    // check if the current item in the array exists in the vowels array
     if(vowels.indexOf(item[0]) !== -1) {
+      // if yes, then return the item concatinate the string 'ma' and add 'a' based on the position of its index
       return item + 'ma' + aChar.repeat(index + 1);
     } else {
+      // if no, then cache the first character of the current item
       const firstChar = item[0];
+      // use substring to get the word leaving out the first character
       const restOfWord = item.substring(1, item.length);
+      // return the formatted word
       return restOfWord + firstChar + 'ma' + aChar.repeat(index + 1);
     }
   });
 
+  // return the mapped array joined by a space
   return reformat.join(' ');
 
 };
